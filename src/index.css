@@ -1,0 +1,172 @@
+:root {
+	--green: #10b981;
+	--grey: #d5d4d8;
+	--light-blue: #273549;
+	--border-radius: 4px;
+	--border-bottom-color: #2f3e53;
+	--light-grey: #d5d4d8;
+	--dark-blue: #1f2937;
+	--header-light-theme: #111827;
+	--light-green: #ecfdf5;
+}
+
+html {
+	color-scheme: dark light;
+}
+
+body {
+	margin: 0;
+	padding: 1.75em;
+	background-color: #1c1c1c;
+}
+
+.wrapper {
+	color: var(--header-light-theme);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+
+	background-color: var(--light-grey);
+
+	gap: 1em;
+}
+.input {
+	padding: min(3em, 3%) min(4em, 5%) 0;
+}
+.output {
+	padding: 0 min(4em, 5%) 2em;
+	container-type: inline-size;
+}
+
+header {
+	grid-column: 1 / -1;
+}
+
+h1 + h2 {
+	margin-top: 0.6em;
+}
+
+/* typography */
+h1,
+h2 {
+	grid-column: 1 / -1;
+	margin: 0;
+	text-wrap: pretty;
+}
+
+h1 {
+	font-family: Karla, sans-serif;
+	font-size: 2.5rem;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.025em;
+}
+
+h2 {
+	color: var(--header-light-theme);
+	font-family: Inter, sans-serif;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.25;
+}
+
+.green {
+	color: var(--green);
+}
+
+/* form */
+form {
+	/* layout */
+	grid-column: 1 / -1;
+	padding-bottom: 2em;
+	margin-bottom: 2em;
+	/* grid */
+	display: grid;
+	grid-template-columns: subgrid;
+	gap: 0.33rem;
+
+	/* styling */
+	border-bottom: 1px solid var(--border-bottom-color);
+
+	& > * {
+		padding: 0.33rem 0px;
+	}
+
+	.checkboxes {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: 1fr 1.5rem 1fr 1.5rem;
+		gap: 1em;
+		align-items: center;
+		text-wrap: balance;
+	}
+}
+/* inputs and buttons */
+input,
+button {
+	cursor: pointer;
+}
+
+input {
+	accent-color: var(--green);
+}
+
+button {
+	/* layout */
+	margin-top: 1.875rem;
+	padding: .5rem 1rem;
+
+	/* styling */
+	border: none;
+	background-color: var(--green);
+
+	/* grid placement */
+	grid-column: 1 / -1;
+	place-self: center;
+
+	/* transitions */
+	transition: color .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.password,
+button {
+	border-radius: var(--border-radius);
+}
+
+button:hover,
+button:active {
+	background-color: white;
+	color: var(--green);
+}
+
+/* password */
+.password {
+	background-color: var(--light-blue);
+	color: var(--green);
+	padding: 0.5rem 1rem;
+	text-align: center;
+}
+
+.password:empty {
+	place-self: center;
+}
+
+/* container query which checks for number of characters that can fit in password */
+@container (width < 30ch) {
+	.password {
+		grid-column: 1 / -1;
+	}
+	p {
+		margin: 0;
+	}
+}
+
+/* @media queries for the dark scheme */
+@media (prefers-color-scheme: dark) {
+	.wrapper {
+		background-color: var(--dark-blue);
+		color: var(--light-grey);
+	}
+	h2 {
+		color: var(--grey);
+	}
+}
