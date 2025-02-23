@@ -143,10 +143,9 @@ button:active {
 	background-color: var(--light-blue);
 	color: var(--green);
 	padding: 0.5rem 1rem;
-	text-align: center;
-}
 
-.password:empty {
+	/* layout */
+	text-align: center;
 	place-self: center;
 }
 

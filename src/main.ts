@@ -46,6 +46,7 @@ for(const passwordEl of passwordEls) {
   passwordEl.addEventListener("click", () => {
     // copy password to clipboard
     if (!passwordEl?.textContent) {
+      makePopover<HTMLDivElement>("popover", "Please generate a password first!")
       return
 		}
     navigator.clipboard.writeText(passwordEl?.textContent)
