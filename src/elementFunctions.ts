@@ -6,7 +6,7 @@ import { lowercase, uppercase, numbers, symbols } from "./data.ts"
 // Generate a random password
 function generatePassword(passwordLength:number, includes: boolean[]):string {
   const characters = []
-  const [includeLowercase, includeUppercase, includeSymbols, includeNumbers] = includes
+  const [ includeUppercase, includeLowercase, includeNumbers, includeSymbols] = includes
   if (includeLowercase) characters.push(...lowercase)
   if (includeUppercase) characters.push(...uppercase)
   if (includeSymbols) characters.push(...symbols)

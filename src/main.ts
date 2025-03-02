@@ -1,6 +1,7 @@
 import { form,  length, checkboxes, passwordEls } from './elements.ts'
 
 import { generatePassword } from './elementFunctions.ts'
+import copySymbol from './archives.png'
 
 /**
  * Add event listener to the form to generate and display a password when the user submits their preferences.
@@ -16,6 +17,10 @@ form.addEventListener('submit', (event) => {
   // Generate a random password
   for (const passwordEl of passwordEls) {
     passwordEl.textContent = generatePassword(passwordLength, checkboxValues );
+    const img = document.createElement("img")
+    img.src = copySymbol
+    img.alt = "click the text to copy"
+    passwordEl.appendChild(img)
   }
 })
 

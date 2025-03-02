@@ -148,16 +148,6 @@ button:active {
 	place-self: center;
 }
 
-/* container query which checks for number of characters that can fit in password */
-/* @container (width < 30ch) {
-	.password {
-		grid-column: 1 / -1;
-	}
-	p {
-		margin: 0;
-	}
-} */
-
 /* @media queries for the dark scheme */
 @media (prefers-color-scheme: dark) {
 	.wrapper {
